@@ -1,0 +1,17 @@
+com\deliverytech\delivery\models\Role.class
+com\deliverytech\delivery\models\Restaurante.class
+com\deliverytech\delivery\models\ItemPedido.class
+com\deliverytech\delivery\models\Usuarios$UsuariosBuilder.class
+com\deliverytech\delivery\models\StatusPedido.class
+com\deliverytech\delivery\models\Endereco.class
+com\deliverytech\delivery\models\Restaurante$RestauranteBuilder.class
+com\deliverytech\delivery\DeliveryApplication.class
+com\deliverytech\delivery\models\Usuarios.class
+com\deliverytech\delivery\models\Produto$ProdutoBuilder.class
+com\deliverytech\delivery\models\Endereco$EnderecoBuilder.class
+com\deliverytech\delivery\models\Clientes.class
+com\deliverytech\delivery\models\Clientes$ClientesBuilder.class
+com\deliverytech\delivery\models\Produto.class
+com\deliverytech\delivery\models\ItemPedido$ItemPedidoBuilder.class
+com\deliverytech\delivery\models\Pedido$PedidoBuilder.class
+com\deliverytech\delivery\models\Pedido.class
