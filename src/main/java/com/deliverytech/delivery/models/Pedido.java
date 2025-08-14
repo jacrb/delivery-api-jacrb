@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.hibernate.annotations.DialectOverride.GeneratedColumns;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
