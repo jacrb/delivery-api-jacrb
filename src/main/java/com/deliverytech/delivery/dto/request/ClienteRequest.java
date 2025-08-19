@@ -1,5 +1,7 @@
 package com.deliverytech.delivery.dto.request;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
+    @NotBlank
     private String nome;
+
+    @Email
+    @NotBlank
     private String email;
 }
