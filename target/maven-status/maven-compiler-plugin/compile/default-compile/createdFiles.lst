@@ -28,6 +28,7 @@ com\deliverytech\delivery\repository\PedidoRepository.class
 com\deliverytech\delivery\dto\response\ItemPedidoResponse.class
 com\deliverytech\delivery\dto\request\PedidoRequest.class
 com\deliverytech\delivery\dto\request\RestauranteRequest.class
+com\deliverytech\delivery\security\JWTUtil.class
 com\deliverytech\delivery\models\Restaurante$RestauranteBuilder.class
 com\deliverytech\delivery\dto\response\PedidoResponse.class
 com\deliverytech\delivery\dto\request\ProdutoRequest.class
@@ -39,8 +40,11 @@ com\deliverytech\delivery\service\implementation\ClienteServiceImpl.class
 com\deliverytech\delivery\exceptions\ConflictException.class
 com\deliverytech\delivery\repository\RestauranteRepository.class
 com\deliverytech\delivery\controller\RestauranteController.class
+com\deliverytech\delivery\config\SecurityConfig.class
+com\deliverytech\delivery\security\JWTAuthenticationFilter.class
 com\deliverytech\delivery\models\ItemPedido.class
 com\deliverytech\delivery\repository\ProdutoRepository.class
+com\deliverytech\delivery\security\UsuarioDetailsServiceImpl.class
 com\deliverytech\delivery\DeliveryApplication.class
 com\deliverytech\delivery\models\Usuarios.class
 com\deliverytech\delivery\controller\ClienteController.class

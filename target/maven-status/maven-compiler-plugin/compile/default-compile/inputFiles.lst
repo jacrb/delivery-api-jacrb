@@ -1,4 +1,5 @@
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\config\OpenApiConfig.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\config\SecurityConfig.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\controller\ClienteController.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\controller\PedidoController.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\controller\ProdutoController.java
@@ -33,6 +34,9 @@ C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delive
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\repository\ProdutoRepository.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\repository\RestauranteRepository.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\repository\UsuarioRepository.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\security\JWTAuthenticationFilter.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\security\JWTUtil.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\security\UsuarioDetailsServiceImpl.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\service\ClienteService.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\service\implementation\ClienteServiceImpl.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\service\implementation\PedidoServiceImpl.java

@@ -36,6 +36,7 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteRepository.findById(id)
                 .map(c -> {
                     c.setNome(atualizado.getNome());
+                    c.setEmail(atualizado.getEmail());
                     return clienteRepository.save(c);
                 })
                 .orElseThrow(

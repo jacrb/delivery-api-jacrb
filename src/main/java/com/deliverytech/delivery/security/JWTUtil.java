@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import com.deliverytech.delivery.models.Usuarios;
 
@@ -15,6 +16,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
+@Component
 public class JWTUtil {
     private final String SECRET_KEY = "FyC4HEPFSAKVT5oNzmmMcp6O6Yu58dAkFxiQ4GaAhn9Cj5gQWTbEtrym7cE5rdsl"; // 64 Caracteres
 
