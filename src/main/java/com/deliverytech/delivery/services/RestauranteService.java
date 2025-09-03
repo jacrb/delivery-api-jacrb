@@ -1,4 +1,4 @@
-package com.deliverytech.delivery.service;
+package com.deliverytech.delivery.services;
 
 import com.deliverytech.delivery.models.Restaurante;
 

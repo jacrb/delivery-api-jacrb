@@ -1,8 +1,9 @@
-package com.deliverytech.delivery.service.implementation;
+package com.deliverytech.delivery.services.implementation;
 
 import com.deliverytech.delivery.models.Produto;
 import com.deliverytech.delivery.repository.ProdutoRepository;
-import com.deliverytech.delivery.service.ProdutoService;
+import com.deliverytech.delivery.services.ProdutoService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

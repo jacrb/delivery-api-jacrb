@@ -1,4 +1,4 @@
-package com.deliverytech.delivery.service;
+package com.deliverytech.delivery.services;
 
 import java.util.List;
 import java.util.Optional;

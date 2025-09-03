@@ -1,4 +1,4 @@
-package com.deliverytech.delivery.controller;
+package com.deliverytech.delivery.controllers;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,12 +18,15 @@ import com.deliverytech.delivery.dto.request.ProdutoRequest;
 import com.deliverytech.delivery.dto.response.ProdutoResponse;
 import com.deliverytech.delivery.models.Produto;
 import com.deliverytech.delivery.models.Restaurante;
-import com.deliverytech.delivery.service.ProdutoService;
-import com.deliverytech.delivery.service.RestauranteService;
+import com.deliverytech.delivery.services.ProdutoService;
+import com.deliverytech.delivery.services.RestauranteService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name="Produtos", description="Endpoint de Produtos")
 @RestController
 @RequestMapping("/api/produtos")
 @RequiredArgsConstructor
@@ -33,6 +36,7 @@ public class ProdutoController {
     private final RestauranteService restauranteService;
 
     @PostMapping
+    @Operation(summary = "Cadastra um produto")
     public ResponseEntity<ProdutoResponse> cadastrar(@Valid @RequestBody ProdutoRequest request) {
         Restaurante restaurante = restauranteService.buscarPorId(request.getRestauranteId())
                 .orElseThrow(() -> new RuntimeException("Restaurante não encontrado"));
@@ -53,6 +57,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/restaurante/{restauranteId}")
+    @Operation(summary = "Lista produtos por Restaurante", description = "Retorna todos os produtos a partir de um ID de restaurante")
     public List<ProdutoResponse> listarPorRestaurante(@PathVariable Long restauranteId) {
         return produtoService.buscarPorRestaurante(restauranteId).stream()
                 .map(p -> new ProdutoResponse(p.getId(), p.getNome(), p.getCategoria(), p.getDescricao(), p.getPreco(),
@@ -61,6 +66,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Atualiza produto do restaurante", description = "Atualiza um produto do restaurante definindo pelo ID")
     public ResponseEntity<ProdutoResponse> atualizar(@PathVariable Long id,
             @Valid @RequestBody ProdutoRequest request) {
         Produto atualizado = Produto.builder()
@@ -75,6 +81,7 @@ public class ProdutoController {
     }
 
     @PatchMapping("/{id}/disponibilidade")
+    @Operation(summary = "Altera a disponibilidade de um produto")
     public ResponseEntity<Void> alterarDisponibilidade(@PathVariable Long id, @RequestParam boolean disponivel) {
         produtoService.alterarDisponibilidade(id, disponivel);
         return ResponseEntity.noContent().build();

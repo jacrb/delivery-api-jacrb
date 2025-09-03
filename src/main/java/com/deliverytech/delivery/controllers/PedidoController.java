@@ -1,4 +1,4 @@
-package com.deliverytech.delivery.controller;
+package com.deliverytech.delivery.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +12,14 @@ import com.deliverytech.delivery.models.Pedido;
 import com.deliverytech.delivery.models.Produto;
 import com.deliverytech.delivery.models.Restaurante;
 import com.deliverytech.delivery.models.StatusPedido;
-import com.deliverytech.delivery.service.ClienteService;
-import com.deliverytech.delivery.service.RestauranteService;
+import com.deliverytech.delivery.services.ClienteService;
+import com.deliverytech.delivery.services.PedidoService;
+import com.deliverytech.delivery.services.ProdutoService;
+import com.deliverytech.delivery.services.RestauranteService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-
-import com.deliverytech.delivery.service.PedidoService;
-import com.deliverytech.delivery.service.ProdutoService;
-
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
@@ -30,7 +30,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
+@Tag(name= "Restaurantes", description = "Endpoint de Pedidos")
 @RestController
 @RequestMapping("/api/pedidos")
 @RequiredArgsConstructor
@@ -42,6 +42,7 @@ public class PedidoController {
     private final ProdutoService produtoService;
 
     @PostMapping
+    @Operation(summary = "Cria um pedido")
     public ResponseEntity<PedidoResponse> criar(@Valid @RequestBody PedidoRequest request) {
         
         Clientes cliente = clienteService.buscarPorId(request.getClienteId()).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
@@ -78,10 +79,6 @@ public class PedidoController {
             itensResp
         ));
     }
-    
-    
-    
-
 
 
 }

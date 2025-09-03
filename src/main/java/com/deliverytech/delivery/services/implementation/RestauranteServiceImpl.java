@@ -1,8 +1,9 @@
-package com.deliverytech.delivery.service.implementation;
+package com.deliverytech.delivery.services.implementation;
 
 import com.deliverytech.delivery.models.Restaurante;
 import com.deliverytech.delivery.repository.RestauranteRepository;
-import com.deliverytech.delivery.service.RestauranteService;
+import com.deliverytech.delivery.services.RestauranteService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

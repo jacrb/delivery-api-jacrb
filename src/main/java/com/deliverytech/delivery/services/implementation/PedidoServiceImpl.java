@@ -1,4 +1,4 @@
-package com.deliverytech.delivery.service.implementation;
+package com.deliverytech.delivery.services.implementation;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.deliverytech.delivery.models.Pedido;
 import com.deliverytech.delivery.models.StatusPedido;
 import com.deliverytech.delivery.repository.PedidoRepository;
-import com.deliverytech.delivery.service.PedidoService;
+import com.deliverytech.delivery.services.PedidoService;
 
 import lombok.RequiredArgsConstructor;
 
