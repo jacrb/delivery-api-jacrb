@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.models;
 
+
 import java.math.BigDecimal;
 
 
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Produto {
+public class Produto{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.models;
 
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -18,7 +19,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Clientes {
+public class Clientes{
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,7 +35,7 @@ public class Clientes {
     private Boolean ativo = true;
 
     //@Embedded
-    //wprivate Endereco enderecoCliente;
+    //private Endereco enderecoCliente;
     
     @Builder.Default
     private LocalDateTime dataCriacao = LocalDateTime.now();

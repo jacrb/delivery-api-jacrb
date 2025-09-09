@@ -21,6 +21,7 @@ public class ClienteRequest {
         example = "João da Silva",
         requiredMode = Schema.RequiredMode.REQUIRED
     )
+    
     @NotBlank
     private String nome;
 
@@ -29,6 +30,7 @@ public class ClienteRequest {
         example = "joao.silva@email.com",
         requiredMode = Schema.RequiredMode.REQUIRED
     )
+
     @Email
     @NotBlank
     private String email;

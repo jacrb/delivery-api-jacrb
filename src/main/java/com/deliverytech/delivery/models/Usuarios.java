@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.models;
 
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -19,7 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuarios {
+public class Usuarios{
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,15 +2,21 @@ networks:
   default:
     driver: bridge
 
-
 services:
   delivery:
     build: .
-    environment:
-      - SPRING_PROFILE_ACTIVE=default
     ports:
       - "8080:8080"
-    restart: unless-stopped
+    depends_on:
+      - redis
+    environment:
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+
+  redis:
+    image: redis:8
+    ports:
+      - "6379:6379"
 
   prometheus:
     image: prom/prometheus:latest
@@ -31,3 +37,4 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
+

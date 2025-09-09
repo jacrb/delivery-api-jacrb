@@ -1,5 +1,6 @@
 package com.deliverytech.delivery.models;
 
+
 import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
@@ -19,6 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ItemPedido {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
