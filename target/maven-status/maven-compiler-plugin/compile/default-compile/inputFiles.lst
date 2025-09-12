@@ -47,3 +47,5 @@ C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delive
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\services\PedidoService.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\services\ProdutoService.java
 C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\services\RestauranteService.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\validation\CEPValidator.java
+C:\Users\User\Documents\delivery-api-jacrb\src\main\java\com\deliverytech\delivery\validation\ValidCEP.java
