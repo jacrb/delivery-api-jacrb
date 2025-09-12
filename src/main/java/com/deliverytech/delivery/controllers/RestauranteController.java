@@ -3,7 +3,8 @@ package com.deliverytech.delivery.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,6 +58,7 @@ public class RestauranteController {
         }
 
         @GetMapping
+        @Cacheable(value = "restaurante")
         @Operation(summary = "Listar todos os restaurantes", description = "Retorna uma lista de todos os restaurantes")
         public List<RestauranteResponse> listarTodos() {
                 return restauranteService.listarTodos().stream()
@@ -67,6 +69,7 @@ public class RestauranteController {
         }
 
         @GetMapping("/{id}")
+        @Cacheable(value = "restaurante", key = "#id")
         @Operation(summary = "Listar o restaurante por ID", description = "Retorna o restaurante definido pelo ID")
         public ResponseEntity<RestauranteResponse> buscarPorId(@PathVariable Long id) {
                 return restauranteService.buscarPorId(id)
@@ -78,6 +81,7 @@ public class RestauranteController {
         }
 
         @GetMapping("/categoria/{categoria}")
+        @Cacheable(value = "restaurante", key = "#categoria")
         @Operation(summary = "Listar os restaurantes por categoria", description = "Retorna os restaurantes definidos pela categoria" )
         public List<RestauranteResponse> buscarPorCategoria(@PathVariable String categoria) {
                 return restauranteService.buscarPorCategoria(categoria).stream()
@@ -88,6 +92,7 @@ public class RestauranteController {
         }
 
         @PutMapping("/{id}")
+        @CacheEvict(value = "restaurante", key = "#id")
         @Operation(summary = "Atualiza dados do restaurante", description = "Atualiza dados de um restaurante definindo pelo ID")
         public ResponseEntity<RestauranteResponse> atualizar(@PathVariable Long id,
                         @Valid @RequestBody RestauranteRequest request) {

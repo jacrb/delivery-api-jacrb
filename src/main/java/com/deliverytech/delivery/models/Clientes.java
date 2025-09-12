@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Clientes{
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

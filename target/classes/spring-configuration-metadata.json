@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "auth0.domain",
+      "type": "java.lang.String",
+      "description": "Domain do Auth0 (ex: seu-dominio.us.auth0.com)"
+    },
+    {
+      "name": "auth0.audience",
+      "type": "java.lang.String",
+      "description": "Audience do API no Auth0 (ex: https://api.deliverytech.com)"
+    },
+    {
+      "name": "auth0.client-id",
+      "type": "java.lang.String",
+      "description": "Client ID da aplicação no Auth0"
+    },
+    {
+      "name": "auth0.client-secret",
+      "type": "java.lang.String",
+      "description": "Client Secret da aplicação no Auth0"
+    }
+  ]
+}

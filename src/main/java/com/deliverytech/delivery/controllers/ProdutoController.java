@@ -3,7 +3,8 @@ package com.deliverytech.delivery.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -58,6 +59,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/restaurante/{restauranteId}")
+    @Cacheable(value = "produtos", key = "#restauranteId")
     @Operation(summary = "Lista produtos por Restaurante", description = "Retorna todos os produtos a partir de um ID de restaurante")
     public List<ProdutoResponse> listarPorRestaurante(@PathVariable Long restauranteId) {
         return produtoService.buscarPorRestaurante(restauranteId).stream()
@@ -67,6 +69,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
+    @CacheEvict(value = "produto", key = "#id")
     @Operation(summary = "Atualiza produto do restaurante", description = "Atualiza um produto do restaurante definindo pelo ID")
     public ResponseEntity<ProdutoResponse> atualizar(@PathVariable Long id,
             @Valid @RequestBody ProdutoRequest request) {
@@ -82,6 +85,7 @@ public class ProdutoController {
     }
 
     @PatchMapping("/{id}/disponibilidade")
+    @CacheEvict(value = "produto", key = "#id")
     @Operation(summary = "Altera a disponibilidade de um produto")
     public ResponseEntity<Void> alterarDisponibilidade(@PathVariable Long id, @RequestParam boolean disponivel) {
         produtoService.alterarDisponibilidade(id, disponivel);

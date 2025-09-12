@@ -3,7 +3,7 @@ package com.deliverytech.delivery.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,6 +56,7 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
+    @Cacheable(value = "cliente", key = "#id")
     @Operation(summary = "Listar o cliente por ID ", description = "Retorna o cliente definido pelo ID")
     public ResponseEntity<ClienteResponse> buscar(@PathVariable Long id) {
         return clienteService.buscarPorId(id)
@@ -65,6 +66,7 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
+    @CacheEvict(value = "cliente", key = "#id")
     @Operation(summary = "Atualiza dados do cliente", description = "Atualiza dados de um cliente definindo pelo ID")
     public ResponseEntity<ClienteResponse> atualizar(@PathVariable Long id,
             @Valid @RequestBody ClienteRequest request) {
@@ -78,6 +80,7 @@ public class ClienteController {
     }
 
     @PatchMapping("/{id}/status")
+    @CacheEvict(value = "cliente", key = "#id")
     @Operation(summary = "Altera o status de um cliente")
     public ResponseEntity<Void> ativarDesativar(@PathVariable Long id) {
         clienteService.ativarDesativar(id);

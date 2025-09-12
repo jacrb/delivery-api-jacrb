@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.deliverytech.delivery.models.Clientes;
 
 public interface ClienteService {
+    
     Clientes cadastrar(Clientes cliente);
     Clientes atualizar(Long id, Clientes clienteAtualizado);
     void ativarDesativar(Long id);

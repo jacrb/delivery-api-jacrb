@@ -3,6 +3,7 @@ package com.deliverytech.delivery.services.implementation;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.deliverytech.delivery.models.Clientes;
@@ -14,10 +15,16 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ClienteServiceImpl implements ClienteService {
+
+    @Autowired
     private final ClienteRepository clienteRepository;
 
     @Override
     public Clientes cadastrar(Clientes cliente) {
+
+        if (clienteRepository.existsByEmail(cliente.getEmail())) {
+            throw new RuntimeException("Email já cadastrado: " + cliente.getEmail());
+        }
         return clienteRepository.save(cliente);
     }
 
@@ -35,6 +42,11 @@ public class ClienteServiceImpl implements ClienteService {
     public Clientes atualizar(Long id, Clientes atualizado) {
         return clienteRepository.findById(id)
                 .map(c -> {
+
+                    if (!c.getEmail().equals(atualizado.getEmail()) && 
+                    clienteRepository.existsByEmail(atualizado.getEmail())) {
+                    throw new RuntimeException("Email já cadastrado: " + atualizado.getEmail());
+                    }
                     c.setNome(atualizado.getNome());
                     c.setEmail(atualizado.getEmail());
                     return clienteRepository.save(c);
