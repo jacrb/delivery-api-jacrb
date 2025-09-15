@@ -43,18 +43,23 @@ public class SecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                // Endpoints públicos
-                //.requestMatchers("/auth/**", "/actuator/**", "/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**")
-                //.permitAll()
+                .requestMatchers(
+                    "**",
+                    "/actuator/**"
+                    //"/h2-console/**",
+                    //"/swagger-ui/**",
+                    //"/v3/api-docs/**"
+                ).permitAll()
                 
                 //.requestMatchers("/api/admin/**").hasAuthority("SCOPE_admin:access")
                 //.requestMatchers("/api/user/**").hasAuthority("SCOPE_user:access")
                 
-                .anyRequest().permitAll()
-                )
+                
+                .anyRequest().authenticated()
+            )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            //.cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            //.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.decoder(jwtDecoder())))
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.decoder(jwtDecoder())))
             .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
             .build();

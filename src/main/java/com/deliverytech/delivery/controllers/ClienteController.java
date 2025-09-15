@@ -3,6 +3,7 @@ package com.deliverytech.delivery.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//import org.springframework.security.core.Authentication;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +50,9 @@ public class ClienteController {
     @GetMapping
     @Cacheable(value = "clientes")
     @Operation(summary = "Listar todos os clientes", description = "Retorna uma lista de todos os clientes")
-    public List<ClienteResponse> listar() {
+    public List<ClienteResponse> listar(/*Authentication authentication*/) {
+
+        //System.out.println("Usuário autenticado: " + authentication.getName());
         return clienteService.listarAtivos().stream()
                 .map(c -> new ClienteResponse(c.getId(), c.getNome(), c.getEmail(), c.getAtivo()))
                 .collect(Collectors.toList());
