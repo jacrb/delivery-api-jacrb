@@ -1,6 +1,6 @@
 # 📦 Delivery Tech API
 
-Sistema de delivery moderno desenvolvido com Spring Boot 3.2.x e Java 21, utilizando as mais recentes funcionalidades da linguagem.
+Sistema de delivery moderno desenvolvido com Spring Boot 3 e Java 21, utilizando as mais recentes funcionalidades da linguagem.
 
 ## 📋 Sobre o Projeto - GCP
 
@@ -10,7 +10,7 @@ Este projeto foi desenvolvido como parte da disciplina **Arquitetura de Sistemas
 
 ### Core
 - **Java 21 LTS** - Versão mais recente com recursos modernos
-- **Spring Boot 3.2.x** - Framework principal
+- **Spring Boot 3** - Framework principal
 - **Maven** - Gerenciamento de dependências
 
 ### Dependências
